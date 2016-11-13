@@ -10,14 +10,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class Res_DB{
     public class koreafood{
 
-
-
-
     }
-
     public class chinafood{
-        String Namgyng[] = {"남경","02-2277-3465"};
-        String Dongguk[] = {"동국반점"};
+        String Namgyng[][] = {{"남경","02-2277-3465"},{"짜장면","6000원"}};
+        String Dongguk[] = {"동국반점",""};
 
     }
     public class westonfood{

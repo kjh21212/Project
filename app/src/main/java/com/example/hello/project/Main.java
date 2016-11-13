@@ -22,6 +22,9 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        startActivity(new Intent(this,Loding.class)); // Loding Class
+
         findViewById(R.id.button1).setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
