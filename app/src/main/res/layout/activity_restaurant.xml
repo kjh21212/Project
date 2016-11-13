@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:app2=" "
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_restaurant"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.hello.project.Restaurant">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+
+        <Button
+            android:text="전체"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/all"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="한식"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/korea"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="중식"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/china"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="일식"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/japan"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="양식"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/weston"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="분식"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/flour"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <Button
+        android:text="Back"
+        android:layout_height="50dp"
+        android:id="@+id/backbutton1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="80dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="52dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/backbutton1">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/namgyung_1"
+                android:id="@+id/imageView"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="남경"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView5" />
+
+                <TextView
+                    android:text="중식"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView4" />
+
+                <TextView
+                    android:text="02-000-0000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

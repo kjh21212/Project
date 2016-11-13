@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.hello.project">
+
+    <uses-permission android:name="android.permission.ladder" />
+    <uses-permission android:name="android.permission.wheel" />
+    <uses-permission android:name="android.permission.category" />
+    <uses-permission android:name="android.permission.tournament" />
+    <uses-permission android:name="android.permission.restaurant" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".Category" />
+        <activity android:name=".Ladder" />
+        <activity android:name=".Restaurant" />
+        <activity android:name=".Tournament" />
+        <activity android:name=".Wheel" />
+        <activity android:name=".Main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
