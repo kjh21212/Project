@@ -6,8 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 public class Main extends AppCompatActivity {
+
+    public static boolean bFirst = true;
 
     // Used to load the 'native-lib' library on application startup.
     static {
@@ -15,16 +16,15 @@ public class Main extends AppCompatActivity {
     }
 
     AppCompatActivity act = this;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
-
-        startActivity(new Intent(this,Loding.class)); // Loding Class
-
+        if(bFirst == true) {
+            startActivity(new Intent(this, Loding.class)); // Loding Class
+            bFirst = false;
+        }
         findViewById(R.id.button1).setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
@@ -68,6 +68,7 @@ public class Main extends AppCompatActivity {
         );
 
     }
+
     /**
      * A native method that is implemented by the 'native-lib' native library,
      * which is packaged with this application.

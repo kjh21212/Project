@@ -1,8 +1,10 @@
 package com.example.hello.project;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+
 
 public class Loding extends AppCompatActivity {
 
@@ -17,6 +19,8 @@ public class Loding extends AppCompatActivity {
             public void run() {
                 finish();       // 3 초후 이미지를 닫아버림
             }
-        }, 3000);
+        }, 1500);
     }
+
+
 }
