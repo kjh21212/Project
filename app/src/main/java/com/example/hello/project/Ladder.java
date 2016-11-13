@@ -27,21 +27,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 public class Ladder extends AppCompatActivity implements Callback {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ladder);
-        findViewById(R.id.backbutton2).setOnClickListener(
-                new Button.OnClickListener() {
-                    public void onClick(View v) {
-                        Intent intent = new Intent(getApplicationContext(), Main.class);
-                        startActivity(intent);
-                    }
-                }
-        );
-    }
-    private static MediaPlayer bgm;
     // 이름 입력칸 참조
     int[] mNames = { R.id.name1, R.id.name2, R.id.name3, R.id.name4 };
     // 캔버스 참조
@@ -69,11 +54,17 @@ public class Ladder extends AppCompatActivity implements Callback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        setContentView(R.layout.activity_main);
 
-        bgm = MediaPlayer.create(this, R.raw.bgm);
-        bgm.setLooping(true);
-        bgm.start();
+        setContentView(R.layout.activity_ladder);
+
+        findViewById(R.id.backbutton2).setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), Main.class);
+                        startActivity(intent);
+                    }
+                }
+        );
 
         // 서피스 터치시 키보드를 사라지게 하기 위해 매니저 호출
         final InputMethodManager ipm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
@@ -316,6 +307,4 @@ public class Ladder extends AppCompatActivity implements Callback {
             canvas.drawCircle(mX * mW, mY * mH, 35, paint);
         }
     }
-
-
 }
