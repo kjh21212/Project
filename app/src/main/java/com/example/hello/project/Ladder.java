@@ -221,7 +221,7 @@ public class Ladder extends AppCompatActivity implements Callback {
         public boolean arrived;
         int directionY = 0;
         int directionX = 0;
-        float speed = 0.01f;
+        float speed = 0.1f;
         public int color;
 
         void setDestination(int x, int y) {

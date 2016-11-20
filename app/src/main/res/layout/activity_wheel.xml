@@ -8,14 +8,23 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#FFFFFF"
     tools:context="com.example.hello.project.Wheel">
 
-    <Button
-        android:text="back"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:id="@+id/backbutton3"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+
+    <com.example.hello.project.spintheWheel
+        android:id="@+id/lucky_wheel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="30dp"
+        android:layout_centerInParent="true"
+        />
+
+    <ImageButton
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bomb"
+        android:layout_centerInParent="true"/>
+
 </RelativeLayout>
