@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="select">
+        <item>선택</item>
+        <item>한식</item>
+        <item>중식</item>
+        <item>양식</item>
+        <item>일식</item>
+        <item>분식</item>
+    </string-array>
+
+    <string-array name="select_korea">
+        <item>선택</item>
+        <item>구공탄</item>
+        <item>눈물닭발</item>
+        <item>땡초불닭발</item>
+        <item>마산아구찜</item>
+        <item>명인찜닭</item>
+        <item>미기도시락</item>
+        <item>박가네부대전골</item>
+        <item>볶음세상</item>
+        <item>뿔난돼지신곱창</item>
+        <item>수상한곱창불닭발</item>
+        <item>신화불골뱅이</item>
+        <item>안동촌찜닭</item>
+        <item>어가해물찜</item>
+        <item>영월쌈밥</item>
+        <item>원조의정부부대찌개</item>
+        <item>원할매보쌈족발</item>
+        <item>장충동가마솥</item>
+        <item>장충동한양왕족발</item>
+        <item>참조은웰빙쌈</item>
+        <item>추풍령할매감자탕</item>
+        <item>한솥명가갈비찜</item>
+        <item>흥보네안동찜닭</item>
+    </string-array>
+
+</resources>

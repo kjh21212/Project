@@ -24,21 +24,26 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
-        android:weightSum="10" >
+        android:weightSum="10"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.5"
             android:gravity="center_vertical|center_horizontal"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <ImageView
                 android:id="@+id/imageView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="15dp"
-                android:src="@drawable/title" />
+                android:src="@drawable/title"
+                android:layout_weight="0.69" />
 
         </LinearLayout>
 
@@ -46,12 +51,14 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:weightSum="4" >
+                android:weightSum="4"
+                android:layout_weight="1.34">
 
                 <LinearLayout
                     android:id="@+id/text1"
@@ -64,14 +71,12 @@
                     android:layout_weight="1"
                     android:background="#FFCCFF" >
 
-                    <EditText
-                        android:id="@+id/name1"
+                    <Button
+                        android:text="선택"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" >
-
-                        <requestFocus />
-                    </EditText>
+                        android:id="@+id/Select_button1"
+                        android:layout_weight="1" />
 
                 </LinearLayout>
 
@@ -86,10 +91,11 @@
                     android:layout_weight="1"
                     android:background="#FFFF44" >
 
-                    <EditText
-                        android:id="@+id/name2"
+                    <Button
+                        android:text="선택"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/Select_button2"
                         android:layout_weight="1" />
 
                 </LinearLayout>
@@ -105,10 +111,11 @@
                     android:layout_weight="1"
                     android:background="#7FFFFF" >
 
-                    <EditText
-                        android:id="@+id/name3"
+                    <Button
+                        android:text="선택"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/Select_button3"
                         android:layout_weight="1" />
 
                 </LinearLayout>
@@ -124,10 +131,11 @@
                     android:layout_weight="1"
                     android:background="#FF8888" >
 
-                    <EditText
-                        android:id="@+id/name4"
+                    <Button
+                        android:text="선택"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/Select_button4"
                         android:layout_weight="1" />
 
                 </LinearLayout>
@@ -154,7 +162,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="fill_parent"
