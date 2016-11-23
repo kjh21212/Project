@@ -66,6 +66,8 @@ public class Ladder extends AppCompatActivity implements Callback {
                 }
         );
 
+
+
         // 서피스 터치시 키보드를 사라지게 하기 위해 매니저 호출
         final InputMethodManager ipm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 

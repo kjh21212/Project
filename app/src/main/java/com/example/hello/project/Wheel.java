@@ -31,7 +31,7 @@ public class Wheel extends AppCompatActivity {
                     }
                 } else {
                     mLuckyWheel.start(0);
-                    mStartButton.setBackgroundResource(R.drawable.stop);
+                    mStartButton.setBackgroundResource(R.drawable.start);
                 }
             }
         });

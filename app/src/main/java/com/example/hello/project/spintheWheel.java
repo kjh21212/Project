@@ -26,16 +26,13 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
     private Thread mThread;
     private Boolean mIsRunning = false;
     private String[] mTexts = new String[]
-            {"1", "2", "3", "4", "5", "6","1", "2", "3", "4", "5", "6"};
-    private int[] mImageIds = new int[]
-            {R.drawable.camera, R.drawable.ipad, R.drawable.lucky, R.drawable.iphone, R.drawable.dress, R.drawable.lucky,R.drawable.camera, R.drawable.ipad, R.drawable.lucky, R.drawable.iphone, R.drawable.dress, R.drawable.lucky};
+            {"1", "2", "3", "4", "5", "6","7", "8"};
 
-    private Bitmap[] mImageBitmaps;
     private Bitmap mBackgroundBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.background);
     private int[] mColors = new int[]
-            {0xFF3A4BC2, 0xFF6B66FF, 0xFF3A4BC2, 0xFF6B66FF,0xFF3A4BC2, 0xFF6B66FF,0xFF3A4BC2, 0xFF6B66FF,0xFF3A4BC2, 0xFF6B66FF,0xFF3A4BC2, 0xFF6B66FF};
+            {0xFF3A4BC2, 0xFF6B66FF, 0xFF3A4BC2, 0xFF6B66FF,0xFF3A4BC2, 0xFF6B66FF,0xFF3A4BC2, 0xFF6B66FF};
 
-    private int mItemCount = 12;
+    private int mItemCount = 8;
     private Paint mArcPaint;
     private Paint mTextPaint;
     private float mTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 20, getResources().getDisplayMetrics());
@@ -89,10 +86,6 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
 
         mRangeRectF = new RectF(mPadding, mPadding, mPadding + mDiameter, mPadding + mDiameter);
 
-        mImageBitmaps = new Bitmap[mItemCount];
-        for (int i = 0; i < mItemCount; i++) {
-            mImageBitmaps[i] = BitmapFactory.decodeResource(getResources(), mImageIds[i]);
-        }
 
         mIsRunning = true;
 
@@ -138,7 +131,6 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
                     mCanvas.drawArc(mRangeRectF, startAngle, sweepAngle, true, mArcPaint);
 
                     drawText(startAngle, sweepAngle, mTexts[i]);
-                    drawIcon(startAngle, mImageBitmaps[i]);
                     startAngle += sweepAngle;
                 }
 
@@ -178,8 +170,7 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
     }
 
     public void stop() {
-        int i = (int)(Math.random()*360);
-        mStartAngle = i;
+        mStartAngle = (float)(Math.random()*8);
         mShouldStop = true;
     }
 
@@ -192,27 +183,14 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
         return mSpeed != 0;
     }
 
-    private void drawIcon(float startAngle, Bitmap bitmap) {
-
-        int iconWidth = mDiameter / 8;
-
-        float iconAngle = (float)((startAngle + 360 / mItemCount / 2) * Math.PI / 180);
-
-        int x = (int)(mCenter + mDiameter / 4 * Math.cos(iconAngle));
-        int y = (int)(mCenter + mDiameter / 4 * Math.sin(iconAngle));
-
-        Rect iconRect = new Rect(x - iconWidth / 2, y - iconWidth / 2, x + iconWidth / 2, y + iconWidth / 2);
-        mCanvas.drawBitmap(bitmap, null, iconRect, null);
-    }
-
     private void drawText(float startAngle, float sweepAngle, String text) {
         Path path = new Path();
         path.addArc(mRangeRectF, startAngle, sweepAngle);
 
         float textWidth = mTextPaint.measureText(text);
 //        int hOffset = (int) (mDiameter * Math.PI / mItemCount / 2 - textWidth / 2);
-        int hOffset = (int)(Math.PI / 6  * mDiameter / 2 / 2 - textWidth / 2);
-        int vOffset = mDiameter / 2 / 12;
+        int hOffset = (int)(Math.PI / 4  * mDiameter / 2 / 2 - textWidth / 2);
+        int vOffset = mDiameter / 2 / 8;
         mCanvas.drawTextOnPath(text, path, hOffset, vOffset, mTextPaint);
     }
 
