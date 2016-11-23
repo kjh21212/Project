@@ -26,9 +26,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-public class Ladder extends AppCompatActivity implements Callback {
+public class Ladder extends AppCompatActivity implements Callback{
     // 이름 입력칸 참조
-    int[] mNames = { R.id.name1, R.id.name2, R.id.name3, R.id.name4 };
+
     // 캔버스 참조
     SurfaceView mSurface;
     // 홀더
@@ -50,12 +50,23 @@ public class Ladder extends AppCompatActivity implements Callback {
     // 계속 여부
     boolean mContinue;
 
+    static Button[] mButton = new Button[4];
+    static String[] name = {"","","",""};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         setContentView(R.layout.activity_ladder);
+
+
+        mButton[0] = (Button)findViewById(R.id.Select_button1);
+        mButton[1] = (Button)findViewById(R.id.Select_button2);
+        mButton[2] = (Button)findViewById(R.id.Select_button3);
+        mButton[3] = (Button)findViewById(R.id.Select_button4);
+
 
         findViewById(R.id.backbutton2).setOnClickListener(
                 new Button.OnClickListener() {
@@ -65,29 +76,62 @@ public class Ladder extends AppCompatActivity implements Callback {
                     }
                 }
         );
+        findViewById(R.id.Select_button1).setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), Select.class);
+                        intent.putExtra("count",0);
+                        startActivity(intent);
+                    }
+                }
+        );
+        findViewById(R.id.Select_button2).setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), Select.class);
+                        intent.putExtra("count",1);
+                        startActivity(intent);
+                    }
+                }
+        );
+        findViewById(R.id.Select_button3).setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), Select.class);
+                        intent.putExtra("count",2);
+                        startActivity(intent);
+                    }
+                }
+        );
+        findViewById(R.id.Select_button4).setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), Select.class);
+                        intent.putExtra("count",3);
+                        startActivity(intent);
+                    }
+                }
+        );
 
+        //초기화
+        Intent intent = getIntent();
 
+        for(int i =0; i<4; i++){
+            final int count = intent.getIntExtra("i", i);
+            name[count] = intent.getStringExtra("select1");
+        }
+        for(int i =0; i<4 ; i++) {
+            mButton[i].setText(name[i]);
+        }
 
-        // 서피스 터치시 키보드를 사라지게 하기 위해 매니저 호출
-        final InputMethodManager ipm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 
         // 서피스
         mSurface = (SurfaceView) findViewById(R.id.canvas);
         mSurface.setZOrderOnTop(true);
-        mSurface.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ipm.toggleSoftInput(0, 0);
-            }
-        });
         mHolder = mSurface.getHolder();
         mHolder.setFormat(PixelFormat.TRANSPARENT);
 
         // 이름 참조
-        EditText[] names = new EditText[mNames.length];
-        for (int i = 0; i < names.length; i++) {
-            names[i] = (EditText) findViewById(mNames[i]);
-        }
 
         // 펜
         mPaint = new Paint();
@@ -188,7 +232,7 @@ public class Ladder extends AppCompatActivity implements Callback {
         // 그리기 시작
         Canvas canvas = mHolder.lockCanvas();
         canvas.drawColor(Color.TRANSPARENT, Mode.CLEAR);
-        mPaint.setColor(Color.WHITE);
+        mPaint.setColor(Color.BLACK);
         // 폴
         for (int i = 0; i < mPoles.length; i++) {
             canvas.drawLine(mPoles[i] * mW, 0, mPoles[i] * mW, mH, mPaint);
