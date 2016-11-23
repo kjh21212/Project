@@ -30,7 +30,7 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
 
     private Bitmap mBackgroundBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.background);
     private int[] mColors = new int[]
-            {0xFF3A4BC2, 0xFF6B66FF, 0xFF3A4BC2, 0xFF6B66FF,0xFF3A4BC2, 0xFF6B66FF,0xFF3A4BC2, 0xFF6B66FF};
+            {0xFFffd333, 0xFFffb651, 0xFFffd333, 0xFFffb651,0xFFffd333, 0xFFffb651,0xFFffd333, 0xFFffb651};
 
     private int mItemCount = 8;
     private Paint mArcPaint;

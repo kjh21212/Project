@@ -24,7 +24,7 @@
         android:id="@+id/start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/bomb"
+        android:background="@drawable/start"
         android:layout_centerInParent="true"/>
 
 </RelativeLayout>
