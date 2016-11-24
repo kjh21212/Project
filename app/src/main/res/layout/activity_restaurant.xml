@@ -81,43 +81,12 @@
         android:layout_alignParentStart="true"
         android:layout_above="@+id/backbutton1">
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <ListView
+            android:id="@+id/listview1"
             android:layout_width="match_parent"
-            android:layout_height="70dp">
+            android:layout_height="match_parent" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/namgyung_1"
-                android:id="@+id/imageView"
-                android:layout_weight="1" />
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <TextView
-                    android:text="남경"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView5" />
-
-                <TextView
-                    android:text="중식"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView4" />
-
-                <TextView
-                    android:text="02-000-0000"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/textView" />
-            </LinearLayout>
-        </LinearLayout>
 
     </LinearLayout>
 
