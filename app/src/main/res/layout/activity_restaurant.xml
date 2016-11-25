@@ -19,13 +19,6 @@
 
 
         <Button
-            android:text="전체"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/all"
-            android:layout_weight="1" />
-
-        <Button
             android:text="한식"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,15 +54,6 @@
             android:layout_weight="1" />
 
     </LinearLayout>
-
-    <Button
-        android:text="Back"
-        android:layout_height="50dp"
-        android:id="@+id/backbutton1"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_width="80dp" />
 
     <LinearLayout
         android:orientation="vertical"

@@ -1,9 +1,5 @@
 package com.example.hello.project;
 
-/**
- * Created by hello on 2016. 11. 23..
- */
-
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -12,110 +8,84 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.util.SparseArray;
-
 
 import java.util.ArrayList;
 
 public class ListViewAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
     private ArrayList<ListViewItem> listViewItemList = new ArrayList<ListViewItem>() ;
+    private Context mContext = null;
 
     // ListViewAdapter의 생성자
-    public ListViewAdapter() {
+    public ListViewAdapter(Context mContext) {
+        super();
+        this.mContext = mContext;
     }
-    // Adapter에 사용되는 데이터의 개수를 리턴. : 필수 구현
+    // Adapter에 사용되는 데이터의 개수를 리턴.
     @Override
-    public int getCount() {
+    public int getCount(){
         return listViewItemList.size() ;
     }
 
-    public static class ViewHolder {
-        @SuppressWarnings("unchecked")
-        ImageView iconImageView;
-        TextView titleTextView;
-        TextView descTextView;
-
-
-        public static <T extends View> T get(View view, int id) {
-            SparseArray<View> viewHolder = (SparseArray<View>) view.getTag();
-            if (viewHolder == null) {
-                viewHolder = new SparseArray<View>();
-                view.setTag(viewHolder);
-            }
-            View childView = viewHolder.get(id);
-            if (childView == null) {
-                childView = view.findViewById(id);
-                viewHolder.put(id, childView);
-            }
-            return (T) childView;
-        }
+    // 지정한 위치(position)에 있는 데이터 리턴
+    @Override
+    public Object getItem(int position) {
+        return listViewItemList.get(position).getTitle() ;
     }
-    // position에 위치한 데이터를 화면에 출력하는데 사용될 View를 리턴. : 필수 구현
+
+    // 지정한 위치(position)에 있는 데이터와 관계된 아이템(row)의 ID를 리턴.
+    @Override
+    public long getItemId(int position) {
+        return position ;
+    }
+
+
+    public void clear() {
+        // clear the data
+        listViewItemList.clear();
+    }
+
+    // position에 위치한 데이터를 화면에 출력하는데 사용될 View를 리턴.
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final int pos = position;
-        final Context context = parent.getContext();
-
-        ViewHolder holder = new ViewHolder();
-
-
+        //final int pos = position;
+        //final Context context = parent.getContext();
+        ViewHolder holder;
         // "listview_item" Layout을 inflate하여 convertView 참조 획득.
         if (convertView == null) {
+            holder = new ViewHolder();
 
-            convertView = LayoutInflater.from(context).inflate(R.layout.activity_list_view_item,parent,false);
-
+            LayoutInflater inflater = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.activity_list_view_item,null);
 
             holder.iconImageView = (ImageView) convertView.findViewById(R.id.imageView1) ;
             holder.titleTextView  = (TextView) convertView.findViewById(R.id.textView1) ;
             holder.descTextView = (TextView) convertView.findViewById(R.id.textView2) ;
 
             convertView.setTag(holder);
-            //LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            //convertView = inflater.inflate(R.layout.activity_list_view_item, parent, false);
+
+        }
+        else{
+            holder = (ViewHolder)convertView.getTag();
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
-        ImageView iconImageView = ViewHolder.get(convertView, R.id.imageView1);
-        TextView titleTextView = ViewHolder.get(convertView, R.id.textView1);
-        TextView descTextView = ViewHolder.get(convertView, R.id.textView2);
-
-
-
-        //ImageView iconImageView = (ImageView) convertView.findViewById(R.id.imageView1) ;
-        //TextView titleTextView = (TextView) convertView.findViewById(R.id.textView1) ;
-        //TextView descTextView = (TextView) convertView.findViewById(R.id.textView2) ;
-
-        // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         ListViewItem listViewItem = listViewItemList.get(position);
 
-        // 아이템 내 각 위젯에 데이터 반영
-
-
-        holder.iconImageView.setImageDrawable(listViewItem.getIcon());
-        holder.titleTextView.setText(listViewItem.getTitle());
-        holder.descTextView.setText(listViewItem.getDesc());
-
-
+        holder.iconImageView.setImageDrawable(listViewItem.iconDrawable);
+        holder.titleTextView.setText(listViewItem.titleStr);
+        holder.descTextView.setText(listViewItem.descStr);
 
         return convertView;
 
     }
-
-
-    // 지정한 위치(position)에 있는 데이터와 관계된 아이템(row)의 ID를 리턴. : 필수 구현
-    @Override
-    public long getItemId(int position) {
-        return position ;
+    public static class ViewHolder {
+        @SuppressWarnings("unchecked")
+        ImageView iconImageView;
+        TextView titleTextView;
+        TextView descTextView;
     }
-
-    // 지정한 위치(position)에 있는 데이터 리턴 : 필수 구현
-    @Override
-    public Object getItem(int position) {
-        return listViewItemList.get(position) ;
-    }
-
-    // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
+    // 아이템 데이터 추가를 위한 함수.
     public void addItem(Drawable icon, String title, String desc) {
         ListViewItem item = new ListViewItem();
 

@@ -1,18 +1,12 @@
 package com.example.hello.project;
-
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.graphics.drawable.Drawable;
 
-
 public class ListViewItem {
-    private Drawable iconDrawable ;
-    private String titleStr ;
-    private String descStr ;
+    public Drawable iconDrawable ;
+    public String titleStr ;
+    public String descStr ;
 
-    public void setIcon(Drawable icon) {
-        iconDrawable = icon ;
-    }
+    public void setIcon(Drawable icon) { iconDrawable = icon ;}
     public void setTitle(String title) {
         titleStr = title ;
     }
@@ -26,7 +20,5 @@ public class ListViewItem {
     public String getTitle() {
         return this.titleStr ;
     }
-    public String getDesc() {
-        return this.descStr ;
-    }
+    public String getDesc() { return this.descStr ; }
 }
