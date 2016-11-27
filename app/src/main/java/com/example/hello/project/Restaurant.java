@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 public class Restaurant extends AppCompatActivity{
     ListView listview = null;
@@ -62,13 +63,13 @@ public class Restaurant extends AppCompatActivity{
                         adapter.addItem(getResources().getDrawable(R.drawable.logo15),
                                 "영월쌈밥", "02-923-3070");
                         adapter.addItem(getResources().getDrawable(R.drawable.logo16),
-                                "의정부부대찌개", "02-6082-5559");
+                                "의정부부대찌개&감자탕", "02-6082-5559");
                         adapter.addItem(getResources().getDrawable(R.drawable.logo17),
                                 "원할매보쌈족발", "02-928-0888");
                         adapter.addItem(getResources().getDrawable(R.drawable.logo18),
-                                "장충동가마솥왕족발", "02-6326-0200");
+                                "장충동가마솥왕족발보쌈", "02-6326-0200");
                         adapter.addItem(getResources().getDrawable(R.drawable.logo19),
-                                "장충동한양왕족발", "02-6082-5559");
+                                "장충동한양왕족발굴보쌈", "02-6082-5559");
                         adapter.addItem(getResources().getDrawable(R.drawable.logo20),
                                 "참조은웰빙쌈밥", "02-953-2333");
                         adapter.addItem(getResources().getDrawable(R.drawable.logo21),
@@ -176,7 +177,6 @@ public class Restaurant extends AppCompatActivity{
                 startActivity(intent);
             }
         });
-
     }
 
 }
