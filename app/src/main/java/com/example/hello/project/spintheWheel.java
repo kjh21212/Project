@@ -1,9 +1,5 @@
 package com.example.hello.project;
 
-/**
- * Created by ask57 on 2016-11-20.
- */
-
 import android.content.Context;
         import android.graphics.Bitmap;
         import android.graphics.BitmapFactory;
@@ -17,8 +13,9 @@ import android.content.Context;
         import android.util.TypedValue;
         import android.view.SurfaceHolder;
         import android.view.SurfaceView;
+import android.widget.EditText;
 
-        import java.util.Random;
+import java.util.Random;
 
 public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback, Runnable {
     private SurfaceHolder mHolder;
@@ -32,7 +29,7 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
     private int[] mColors = new int[]
             {0xFFffd333, 0xFFffb651, 0xFFffd333, 0xFFffb651,0xFFffd333, 0xFFffb651,0xFFffd333, 0xFFffb651};
 
-    private int mItemCount = 8;
+    private int mItemCount=6;
     private Paint mArcPaint;
     private Paint mTextPaint;
     private float mTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 20, getResources().getDisplayMetrics());
@@ -43,7 +40,6 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
     private double mSpeed = 0;
     private volatile float mStartAngle = 0;
     private boolean mShouldStop;
-
     public spintheWheel(Context context) {
         this(context, null);
     }
@@ -118,30 +114,30 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
     private void draw() {
         try {
             mCanvas = mHolder.lockCanvas();
-            if (mCanvas != null) {
-                //draw something
-                drawBackground();
+                    if (mCanvas != null) {
+                        //draw something
+                        drawBackground();
 
-                float startAngle = mStartAngle;
-                float sweepAngle = 360 / mItemCount;
+                        float startAngle = mStartAngle;
+                        float sweepAngle = 360 / mItemCount;
 
-                for (int i = 0; i < mItemCount; i++) {
-                    mArcPaint.setColor(mColors[i]);
+                        for (int i = 0; i < mItemCount; i++) {
+                            mArcPaint.setColor(mColors[i]);
 //                    startAngle = i * sweepAngle;
-                    mCanvas.drawArc(mRangeRectF, startAngle, sweepAngle, true, mArcPaint);
+                            mCanvas.drawArc(mRangeRectF, startAngle, sweepAngle, true, mArcPaint);
 
-                    drawText(startAngle, sweepAngle, mTexts[i]);
-                    startAngle += sweepAngle;
-                }
+                            drawText(startAngle, sweepAngle, mTexts[i]);
+                            startAngle += sweepAngle;
+                        }
 
-                mStartAngle += mSpeed;
+                        mStartAngle += mSpeed;
 
-                if (mShouldStop) {
-                    mSpeed--;
-                }
+                        if (mShouldStop) {
+                            mSpeed--;
+                        }
 
-                if (mSpeed <= 0) {
-                    mSpeed = 0;
+                        if (mSpeed <= 0) {
+                            mSpeed = 0;
                     mShouldStop = false;
                 }
             }
@@ -150,6 +146,7 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
                 mHolder.unlockCanvasAndPost(mCanvas);
             }
         }
+
     }
 
     public void start(int index) {
@@ -188,9 +185,8 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
         path.addArc(mRangeRectF, startAngle, sweepAngle);
 
         float textWidth = mTextPaint.measureText(text);
-//        int hOffset = (int) (mDiameter * Math.PI / mItemCount / 2 - textWidth / 2);
-        int hOffset = (int)(Math.PI / 4  * mDiameter / 2 / 2 - textWidth / 2);
-        int vOffset = mDiameter / 2 / 8;
+        int hOffset = (int)(Math.PI / mItemCount/2  * mDiameter / 2 / 2 - textWidth / 2);
+        int vOffset = mDiameter / 2 / mItemCount;
         mCanvas.drawTextOnPath(text, path, hOffset, vOffset, mTextPaint);
     }
 
@@ -198,6 +194,7 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
         mCanvas.drawColor(0xFFFFFFFF);
 
         mCanvas.drawBitmap(mBackgroundBitmap, null, new Rect(mPadding / 2, mPadding / 2, getMeasuredWidth() - mPadding / 2, getMeasuredHeight() - mPadding / 2), null);
-//        mCanvas.drawBitmap(mBackgroundBitmap, null, new Rect(mPadding, mPadding, mPadding + mDiameter, mPadding + mDiameter), null);
     }
+
+
 }

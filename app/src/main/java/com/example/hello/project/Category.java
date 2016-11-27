@@ -10,16 +10,16 @@ public class Category extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category);
-        findViewById(R.id.backbutton4).setOnClickListener(
-                new Button.OnClickListener() {
-                    public void onClick(View v) {
-                        Intent intent = new Intent(getApplicationContext(), Main.class);
-                        startActivity(intent);
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_category);
+            findViewById(R.id.backbutton4).setOnClickListener(
+                    new Button.OnClickListener() {
+                        public void onClick(View v) {
+                            Intent intent = new Intent(getApplicationContext(), Main.class);
+                            startActivity(intent);
+                        }
                     }
-                }
-        );
+            );
 
     }
 }

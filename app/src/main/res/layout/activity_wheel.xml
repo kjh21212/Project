@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_wheel"
     android:layout_width="match_parent"
@@ -12,19 +13,33 @@
     tools:context="com.example.hello.project.Wheel">
 
 
+    <Button
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:text="돌리기"/>
+
     <com.example.hello.project.spintheWheel
         android:id="@+id/lucky_wheel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="30dp"
-        android:layout_centerInParent="true"
-        />
+        android:layout_above="@+id/start"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp" />
 
-    <ImageButton
-        android:id="@+id/start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/start"
-        android:layout_centerInParent="true"/>
+    <ImageView
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:srcCompat="@drawable/arrows"
+        android:id="@+id/imageView"
+        android:layout_marginTop="85dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/start"
+        android:layout_alignStart="@+id/start" />
 
 </RelativeLayout>
