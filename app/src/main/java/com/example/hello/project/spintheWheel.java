@@ -23,7 +23,7 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
     private Thread mThread;
     private Boolean mIsRunning = false;
     private String[] mTexts = new String[]
-            {"1", "2", "3", "4", "5", "6","7", "8"};
+            {"1", "2", "3", "4", "5", "6"};
 
     private Bitmap mBackgroundBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.background);
     private int[] mColors = new int[]
