@@ -17,10 +17,6 @@ import android.view.SurfaceView;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
-/*
-  사다리게임 오픈소스 참고
-  황금돼지를 잡아라 http://appcenter.kr/앱소스
-*/
 
 public class Ladder extends AppCompatActivity implements Callback{
     // 이름 입력칸 참조
@@ -57,10 +53,12 @@ public class Ladder extends AppCompatActivity implements Callback{
 
         setContentView(R.layout.activity_ladder);
 
+
         mButton[0] = (Button)findViewById(R.id.Select_button1);
         mButton[1] = (Button)findViewById(R.id.Select_button2);
         mButton[2] = (Button)findViewById(R.id.Select_button3);
         mButton[3] = (Button)findViewById(R.id.Select_button4);
+
 
         findViewById(R.id.backbutton2).setOnClickListener(
                 new Button.OnClickListener() {
@@ -265,6 +263,7 @@ public class Ladder extends AppCompatActivity implements Callback{
         public int color;
 
         void setDestination(int x, int y) {
+
             idX = x;
             idY = y;
             dX = mPoles[x];
