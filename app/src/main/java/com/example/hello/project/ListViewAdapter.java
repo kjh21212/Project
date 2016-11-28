@@ -8,12 +8,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+<<<<<<< Updated upstream
+=======
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.net.Uri;
-import android.content.Intent;
+>>>>>>> Stashed changes
+
 import java.util.ArrayList;
-import android.widget.ImageButton;
 
 public class ListViewAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
@@ -57,7 +59,10 @@ public class ListViewAdapter extends BaseAdapter {
         ViewHolder holder;
         // "listview_item" Layout을 inflate하여 convertView 참조 획득.
         if (convertView == null) {
+<<<<<<< Updated upstream
+=======
 
+>>>>>>> Stashed changes
             holder = new ViewHolder();
 
             LayoutInflater inflater = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -67,8 +72,10 @@ public class ListViewAdapter extends BaseAdapter {
             holder.titleTextView  = (TextView) convertView.findViewById(R.id.textView1) ;
             holder.descTextView = (TextView) convertView.findViewById(R.id.textView2) ;
 
+<<<<<<< Updated upstream
             convertView.setTag(holder);
 
+=======
             holder.callBtn = (ImageButton) convertView.findViewById(R.id.callbutton);
             holder.callBtn.setOnClickListener(new OnClickListener() {
                 public void onClick(View v) {
@@ -79,6 +86,7 @@ public class ListViewAdapter extends BaseAdapter {
 
             });
             convertView.setTag(holder);
+>>>>>>> Stashed changes
         }
         else{
             holder = (ViewHolder)convertView.getTag();
@@ -99,7 +107,6 @@ public class ListViewAdapter extends BaseAdapter {
         ImageView iconImageView;
         TextView titleTextView;
         TextView descTextView;
-        ImageButton callBtn;
     }
     // 아이템 데이터 추가를 위한 함수.
     public void addItem(Drawable icon, String title, String desc) {

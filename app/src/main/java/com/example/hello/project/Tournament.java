@@ -1,16 +1,23 @@
 package com.example.hello.project;
 
 import android.content.Intent;
+<<<<<<< Updated upstream
+=======
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
+>>>>>>> Stashed changes
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+<<<<<<< Updated upstream
 import android.widget.TextView;
 
 import java.util.Random;
+=======
 import android.widget.ImageView;
+>>>>>>> Stashed changes
+
 public class Tournament extends AppCompatActivity {
     int[] img = {R.drawable.logo1, R.drawable.logo2, R.drawable.logo3, R.drawable.logo4, R.drawable.logo5, R.drawable.logo6, R.drawable.logo7, R.drawable.logo8
             , R.drawable.logo9, R.drawable.logo10, R.drawable.logo11, R.drawable.logo12, R.drawable.logo13, R.drawable.logo14, R.drawable.logo15, R.drawable.logo16
@@ -21,9 +28,11 @@ public class Tournament extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tournament);
 
+<<<<<<< Updated upstream
         TextView tv1 = (TextView)findViewById(R.id.tView1);
         TextView tv2 = (TextView)findViewById(R.id.tView2);
-
+=======
+>>>>>>> Stashed changes
         findViewById(R.id.backbutton5).setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
