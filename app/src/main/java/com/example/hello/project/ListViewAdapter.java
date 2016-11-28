@@ -8,6 +8,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+<<<<<<< Updated upstream
+=======
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
+import android.net.Uri;
+>>>>>>> Stashed changes
 
 import java.util.ArrayList;
 
@@ -53,6 +59,10 @@ public class ListViewAdapter extends BaseAdapter {
         ViewHolder holder;
         // "listview_item" Layout을 inflate하여 convertView 참조 획득.
         if (convertView == null) {
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
             holder = new ViewHolder();
 
             LayoutInflater inflater = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -62,8 +72,21 @@ public class ListViewAdapter extends BaseAdapter {
             holder.titleTextView  = (TextView) convertView.findViewById(R.id.textView1) ;
             holder.descTextView = (TextView) convertView.findViewById(R.id.textView2) ;
 
+<<<<<<< Updated upstream
             convertView.setTag(holder);
 
+=======
+            holder.callBtn = (ImageButton) convertView.findViewById(R.id.callbutton);
+            holder.callBtn.setOnClickListener(new OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent =
+                            new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+ getNumber(position)));
+                    mContext.startActivity(intent);
+                }
+
+            });
+            convertView.setTag(holder);
+>>>>>>> Stashed changes
         }
         else{
             holder = (ViewHolder)convertView.getTag();

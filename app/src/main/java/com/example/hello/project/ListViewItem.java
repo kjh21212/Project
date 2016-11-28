@@ -14,11 +14,10 @@ public class ListViewItem {
         descStr = desc ;
     }
 
-    public Drawable getIcon() {
-        return this.iconDrawable ;
-    }
+    public Drawable getIcon() {return this.iconDrawable ;}
     public String getTitle() {
         return this.titleStr ;
     }
     public String getDesc() { return this.descStr ; }
+
 }

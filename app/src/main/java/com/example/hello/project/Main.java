@@ -16,6 +16,7 @@ public class Main extends AppCompatActivity {
     }
 
     AppCompatActivity act = this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
