@@ -106,7 +106,7 @@ public class Menu extends AppCompatActivity {
             ImageView image = (ImageView)findViewById(R.id.menuImage);
             image.setImageDrawable(drawable);
         }
-        else if(name.equals("의정부부대찌개&감자탕"))
+        else if(name.equals("의정부부대찌개"))
         {
             Drawable drawable = getResources().getDrawable(R.drawable.korea16);
             ImageView image = (ImageView)findViewById(R.id.menuImage);
@@ -118,13 +118,13 @@ public class Menu extends AppCompatActivity {
             ImageView image = (ImageView)findViewById(R.id.menuImage);
             image.setImageDrawable(drawable);
         }
-        else if(name.equals("장충동가마솥왕족발보쌈"))
+        else if(name.equals("장충동가마솥왕족발"))
         {
             Drawable drawable = getResources().getDrawable(R.drawable.korea18);
             ImageView image = (ImageView)findViewById(R.id.menuImage);
             image.setImageDrawable(drawable);
         }
-        else if(name.equals("장충동한양왕족발굴보쌈"))
+        else if(name.equals("장충동한양왕족발"))
         {
             Drawable drawable = getResources().getDrawable(R.drawable.korea19);
             ImageView image = (ImageView)findViewById(R.id.menuImage);

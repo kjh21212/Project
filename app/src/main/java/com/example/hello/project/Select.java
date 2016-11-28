@@ -15,8 +15,6 @@ public class Select extends AppCompatActivity implements AdapterView.OnItemSelec
 
     TextView text1;
 
-
-
     /**
      * 스피너를 위한 아이템 정의
      * 스피너에 보여줄 아이템 리스트
@@ -168,7 +166,7 @@ public class Select extends AppCompatActivity implements AdapterView.OnItemSelec
         //안드로이드에서 기본 지원 해주는 memu를 보여줌
         //setting메뉴만 등장함, 클릭시 변화가 없음
 
-       // getMenuInflater().inflate(R.menu.main, menu);
+        // getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 }
