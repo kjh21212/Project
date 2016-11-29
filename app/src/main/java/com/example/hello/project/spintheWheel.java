@@ -26,13 +26,13 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
     private Thread mThread;
     private Boolean mIsRunning = false;
     protected String[] mTexts = new String[]
-            {"", "","",""};
+            {"", "","","","",""};
 
     private Bitmap mBackgroundBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.background);
     private int[] mColors = new int[]
             {0xFFffd333, 0xFFffb651};
 
-    protected static int mItemCount = 4;
+    protected static int mItemCount;
     private Paint mArcPaint;
     private Paint mTextPaint;
     private float mTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 20, getResources().getDisplayMetrics());

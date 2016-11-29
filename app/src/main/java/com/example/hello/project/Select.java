@@ -25,7 +25,7 @@ public class Select extends AppCompatActivity implements AdapterView.OnItemSelec
     String[] items_japan = {"선택","미스터돈까스"};
     String[] items_flour = {"선택","김가네","나래분식","신당동 해물떡볶이","엽기떡볶이","용우동","윤떡","진아네떡볶이"};
     static String[] select1={"","","",""};
-    protected String[] select2=new String[Wheel.item];
+    protected String[] select2={"","","","","",""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

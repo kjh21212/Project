@@ -35,4 +35,10 @@
         <item>흥보네안동찜닭</item>
     </string-array>
 
+    <string-array name="number">
+        <item>2개</item>
+        <item>4개</item>
+        <item>6개</item>
+    </string-array>
+
 </resources>
