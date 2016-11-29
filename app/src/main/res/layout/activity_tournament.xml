@@ -36,7 +36,7 @@
             android:weightSum="1">
 
             <TextView
-                android:text="먹을거 월드컵"
+                android:text="둘 중 선호하는 음식점을 골라주세요!!"
                 android:layout_width="256dp"
                 android:layout_height="match_parent"
                 android:id="@+id/textView7" />
@@ -45,7 +45,7 @@
                 android:text="TextView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/howmany" />
+                android:id="@+id/textView" />
         </LinearLayout>
 
         <LinearLayout

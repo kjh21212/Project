@@ -29,7 +29,9 @@
         </activity>
         <activity android:name=".Loding" />
         <activity android:name=".Select" />
-        <activity android:name=".Menu"></activity>
+        <activity android:name=".Menu" />
+        <activity android:name=".TournamentStart" />
+        <activity android:name=".TournamentFinish"></activity>
     </application>
 
 </manifest>
