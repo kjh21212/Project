@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.AdapterView;
-
+/*
+    김재훈 작업
+*/
 public class Restaurant extends AppCompatActivity {
     ListView listview = null;
     ListViewAdapter adapter = null;

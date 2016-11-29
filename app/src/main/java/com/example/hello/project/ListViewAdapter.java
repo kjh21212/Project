@@ -13,6 +13,9 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.net.Uri;
 import java.util.ArrayList;
+/*
+    김재훈 작업
+*/
 
 public class ListViewAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList

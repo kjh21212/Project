@@ -6,7 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+/*
+    강현규 작업
+*/
 public class TournamentFinish extends AppCompatActivity {
 
     @Override

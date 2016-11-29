@@ -1,6 +1,8 @@
 package com.example.hello.project;
 import android.graphics.drawable.Drawable;
-
+/*
+    김재훈 작업
+*/
 public class ListViewItem {
     public Drawable iconDrawable ;
     public String titleStr ;

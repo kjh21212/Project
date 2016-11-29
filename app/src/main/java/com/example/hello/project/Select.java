@@ -10,7 +10,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.view.Menu;
 import android.widget.AdapterView;
-
+/*
+    김재훈 작업
+*/
 public class Select extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     TextView text1;

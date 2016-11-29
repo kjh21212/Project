@@ -14,6 +14,11 @@ import android.widget.*;
 import android.widget.TextView;
 import java.util.*;
 
+/*
+    임동우, 김재훈 작업
+ */
+
+
 public class Category extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
     private TextView tv;

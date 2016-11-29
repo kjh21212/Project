@@ -16,7 +16,11 @@ import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-
+/*
+ LADDER 오픈소스 참고
+    http://appcenter.kr/앱소스
+    참고자 : 김재훈
+*/
 
 public class Ladder extends AppCompatActivity implements Callback{
     // 이름 입력칸 참조

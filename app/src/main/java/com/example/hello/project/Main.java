@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-
+/*
+    김재훈 작업
+*/
 public class Main extends AppCompatActivity {
 
     public static boolean bFirst = true;

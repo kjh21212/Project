@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import static com.example.hello.project.TournamentStart.count;
+/*
+    강현규 작업
+*/
 
 public class Tournament extends AppCompatActivity {
 
