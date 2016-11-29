@@ -5,41 +5,75 @@
     android:id="@+id/activity_wheel"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#FFFFFF"
     tools:context="com.example.hello.project.Wheel">
 
+
+    <com.example.hello.project.spintheWheel
+        android:id="@+id/lucky_wheel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/start"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp"
+        android:padding="30dp" />
 
     <Button
         android:id="@+id/start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="15dp"
-        android:text="돌리기"/>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="돌리기" />
 
-    <com.example.hello.project.spintheWheel
-        android:id="@+id/lucky_wheel"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="30dp"
-        android:layout_above="@+id/start"
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/start"
+        android:layout_toStartOf="@+id/start"
+        android:text="개수지정" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp" />
+        android:layout_below="@+id/lucky_wheel"
+        android:layout_toLeftOf="@+id/button"
+        android:layout_toStartOf="@+id/button"
+        android:ems="10"
+        android:inputType="numberDecimal"
+
+        />
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="90dp"
         android:layout_height="90dp"
-        app:srcCompat="@drawable/arrows"
-        android:id="@+id/imageView"
-        android:layout_marginTop="85dp"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/start"
-        android:layout_alignStart="@+id/start" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="98dp"
+        app:srcCompat="@drawable/arrows" />
 
+    <Button
+        android:id="@+id/additem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="추가하기"
+        android:layout_below="@+id/addmenu"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

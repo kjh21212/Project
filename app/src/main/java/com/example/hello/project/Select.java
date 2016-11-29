@@ -25,6 +25,7 @@ public class Select extends AppCompatActivity implements AdapterView.OnItemSelec
     String[] items_japan = {"선택","미스터돈까스"};
     String[] items_flour = {"선택","김가네","나래분식","신당동 해물떡볶이","엽기떡볶이","용우동","윤떡","진아네떡볶이"};
     static String[] select1={"","","",""};
+    protected String[] select2=new String[Wheel.item];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +87,10 @@ public class Select extends AppCompatActivity implements AdapterView.OnItemSelec
             @Override
             public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
                 if (adapter.getItem(position).toString() != adapter.getItem(0).toString()) {
-                    select1[count] = adapter.getItem(position).toString();
+                    if(count<4)
+                        select1[count] = adapter.getItem(position).toString();
+                    else
+                        select2[count-4] = adapter.getItem(position).toString();
                 }
             }
             @Override
@@ -97,7 +101,10 @@ public class Select extends AppCompatActivity implements AdapterView.OnItemSelec
             @Override
             public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
                 if (adapter2.getItem(position).toString() != adapter2.getItem(0).toString()) {
-                    select1[count] = adapter2.getItem(position).toString();
+                    if(count<4)
+                        select1[count] = adapter2.getItem(position).toString();
+                    else
+                        select2[count-4] = adapter2.getItem(position).toString();
                 }
             }
             @Override
@@ -108,7 +115,10 @@ public class Select extends AppCompatActivity implements AdapterView.OnItemSelec
             @Override
             public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
                 if (adapter3.getItem(position).toString() != adapter3.getItem(0).toString()) {
-                    select1[count] = adapter3.getItem(position).toString();
+                    if(count<4)
+                        select1[count] = adapter3.getItem(position).toString();
+                    else
+                        select2[count-4] = adapter3.getItem(position).toString();
                 }
             }
             @Override
@@ -119,7 +129,10 @@ public class Select extends AppCompatActivity implements AdapterView.OnItemSelec
             @Override
             public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
                 if (adapter4.getItem(position).toString() != adapter4.getItem(0).toString()) {
-                    select1[count] = adapter4.getItem(position).toString();
+                    if(count<4)
+                        select1[count] = adapter4.getItem(position).toString();
+                    else
+                        select2[count-4] = adapter4.getItem(position).toString();
                 }
             }
             @Override
@@ -130,7 +143,10 @@ public class Select extends AppCompatActivity implements AdapterView.OnItemSelec
             @Override
             public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
                 if (adapter5.getItem(position).toString() != adapter5.getItem(0).toString()) {
-                    select1[count] = adapter5.getItem(position).toString();
+                    if(count<4)
+                        select1[count] = adapter5.getItem(position).toString();
+                    else
+                        select2[count-4] = adapter5.getItem(position).toString();
                 }
             }
             @Override
@@ -140,10 +156,18 @@ public class Select extends AppCompatActivity implements AdapterView.OnItemSelec
         findViewById(R.id.backbutton).setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
-                        Intent intent = new Intent(getApplicationContext(), Ladder.class);
-                        intent.putExtra("select1",select1[count]);
-                        intent.putExtra("i",count);
+                        if(count<4) {
+                            Intent intent = new Intent(getApplicationContext(), Ladder.class);
+                            intent.putExtra("select1", select1[count]);
+                            intent.putExtra("i", count);
+                            startActivity(intent);
+                    }
+                    else {
+                        Intent intent = new Intent(getApplicationContext(), Wheel.class);
+                        intent.putExtra("select1", select2[count-4]);
+                        intent.putExtra("i", count);
                         startActivity(intent);
+                    }
                     }
                 }
         );

@@ -2,12 +2,12 @@ package com.example.hello.project;
 /*
  16.11.28 재커밋
  */
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 public class Main extends AppCompatActivity {
 
@@ -18,12 +18,13 @@ public class Main extends AppCompatActivity {
     }
 
     AppCompatActivity act = this;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if(bFirst == true) {
+        if (bFirst == true) {
             startActivity(new Intent(this, Loding.class)); // Loding Class
             bFirst = false;
         }
