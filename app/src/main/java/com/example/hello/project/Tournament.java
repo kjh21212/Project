@@ -71,22 +71,17 @@ public class Tournament extends AppCompatActivity {
                 }
         );
         if(count<4){
-            tv1.setBackgroundResource(TournamentStart.img[count*2]);
-            tv2.setBackgroundResource(TournamentStart.img[count*2+1]);
+            tv1.setBackgroundResource(TournamentStart.num[count*2]);
+            tv2.setBackgroundResource(TournamentStart.num[count*2+1]);
         }
         else if(count>3 && count<6){
-            tv1.setBackgroundResource(TournamentStart.img[count*2-8]);
-            tv2.setBackgroundResource(TournamentStart.img[count*2-7]);
+            tv1.setBackgroundResource(TournamentStart.num[count*2-8]);
+            tv2.setBackgroundResource(TournamentStart.num[count*2-7]);
         }
         else{
-            tv1.setBackgroundResource(TournamentStart.img[count*2-12]);
-            tv2.setBackgroundResource(TournamentStart.img[count*2-11]);
+            tv1.setBackgroundResource(TournamentStart.num[count*2-12]);
+            tv2.setBackgroundResource(TournamentStart.num[count*2-11]);
         }
 
-
-        /*
-        tv1.setBackgroundResource(img[num1]);
-        tv2.setBackgroundResource(img[num2]);
-        */
     }
 }

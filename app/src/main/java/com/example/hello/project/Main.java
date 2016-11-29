@@ -18,7 +18,6 @@ public class Main extends AppCompatActivity {
     AppCompatActivity act = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        TournamentStart.count=0;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if(bFirst == true) {

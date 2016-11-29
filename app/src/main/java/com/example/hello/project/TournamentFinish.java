@@ -24,7 +24,7 @@ public class TournamentFinish extends AppCompatActivity {
                 }
         );
 
-        tv3.setBackgroundResource(TournamentStart.img[0]);
+        tv3.setBackgroundResource(TournamentStart.num[0]);
 
     }
 }
