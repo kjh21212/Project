@@ -18,6 +18,7 @@ public class Tournament extends AppCompatActivity {
 
         TextView tv1 = (TextView)findViewById(R.id.tView1);
         TextView tv2 = (TextView)findViewById(R.id.tView2);
+        TextView tv3 = (TextView)findViewById(R.id.tView4);
         findViewById(R.id.backbutton5).setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
@@ -71,14 +72,17 @@ public class Tournament extends AppCompatActivity {
                 }
         );
         if(count<4){
+            tv3.setText("8강");
             tv1.setBackgroundResource(TournamentStart.num[count*2]);
             tv2.setBackgroundResource(TournamentStart.num[count*2+1]);
         }
         else if(count>3 && count<6){
+            tv3.setText("4강");
             tv1.setBackgroundResource(TournamentStart.num[count*2-8]);
             tv2.setBackgroundResource(TournamentStart.num[count*2-7]);
         }
         else{
+            tv3.setText("결승");
             tv1.setBackgroundResource(TournamentStart.num[count*2-12]);
             tv2.setBackgroundResource(TournamentStart.num[count*2-11]);
         }
