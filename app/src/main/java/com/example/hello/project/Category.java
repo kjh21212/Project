@@ -105,19 +105,26 @@ public class Category extends AppCompatActivity implements CompoundButton.OnChec
         findViewById(R.id.setcheck).setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
+
+                        int [] k = new int[10];
+                        int b=0;
+                        for(int i=1; i<11; i++)
+                        {
+                            if(Check[i].equals('1')) {
+                                k[b] = i;
+                                b++;
+                            }
+                        }
+
                         equal.setText("");
                         result2[0] = "";
-                        for (int i = 0; i < 47; i++) {
 
-                            for (int j = 1; j < 11; j++) {
-                                if (name[i][j].equals(Check[j])) {
-                                    count[0]++;
+                        for (int i = 0; i < 47; i++) {
+                            for (int j = 0; j < b; j++) {
+                                if (name[i][k[j]].equals('1') && name[i][k[j+1]].equals('1')){
+                                    result2[0] += name[i][0] + ", ";
                                 }
                             }
-                            if (count[0] == 10) {
-                                result2[0] += name[i][0] + ", ";
-                            }
-                            count[0]=0;
                         }
                         equal.setText(result2[0]);
 
