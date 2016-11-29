@@ -102,8 +102,6 @@ public class Category extends AppCompatActivity implements CompoundButton.OnChec
         cb9.setOnCheckedChangeListener(this);
         cb10.setOnCheckedChangeListener(this);
 
-        final String[] result2 = {""};
-
         findViewById(R.id.backbutton4).setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
@@ -117,7 +115,6 @@ public class Category extends AppCompatActivity implements CompoundButton.OnChec
                 new Button.OnClickListener() {
                     public void onClick(View v) {
                         al.clear();
-
                         int [] k = new int[10];
                         int b=0;
                         for(int i=1; i<11; i++)
@@ -127,18 +124,18 @@ public class Category extends AppCompatActivity implements CompoundButton.OnChec
                                 b++;
                             }
                         }
-                        result2[0] = "";
+
                         for (int i = 0; i < 47; i++) {
                             for (int j = 0; j < b; j++) {
                                 if (name[i][k[j]].equals("1") && name[i][k[j+1]].equals("1")){
                                     al.add(name[i][0]);
                                 }
+                                else if(name[i][k[j]].equals("1") && b==1 ) {
+                                    al.add(name[i][0]);
+                                }
                             }
                         }
-                        MyAdapter adapter = new MyAdapter (
-                                getApplicationContext(), // 현재 화면의 제어권자
-                                R.layout.row, // xml 에 작성한 array 항목을 지정
-                                al);
+                        MyAdapter adapter = new MyAdapter(getApplicationContext(), R.layout.row, al);
                         ListView lv = (ListView) findViewById(R.id.listview);
                         lv.setAdapter(adapter);
                     }
