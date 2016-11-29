@@ -1,35 +1,38 @@
 package com.example.hello.project;
 
 import android.content.Context;
-        import android.graphics.Bitmap;
-        import android.graphics.BitmapFactory;
-        import android.graphics.Canvas;
-        import android.graphics.Paint;
-        import android.graphics.Path;
-        import android.graphics.Rect;
-        import android.graphics.RectF;
-        import android.os.SystemClock;
-        import android.util.AttributeSet;
-        import android.util.TypedValue;
-        import android.view.SurfaceHolder;
-        import android.view.SurfaceView;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.os.SystemClock;
+import android.util.AttributeSet;
+import android.util.TypedValue;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import android.view.View;
 import android.widget.EditText;
 
 import java.util.Random;
+
+import static android.os.SystemClock.sleep;
 
 public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback, Runnable {
     private SurfaceHolder mHolder;
     private Canvas mCanvas;
     private Thread mThread;
     private Boolean mIsRunning = false;
-    private String[] mTexts = new String[]
-            {"1", "2", "3", "4", "5", "6","7", "8"};
+    protected String[] mTexts = new String[]
+            {"", "","",""};
 
     private Bitmap mBackgroundBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.background);
     private int[] mColors = new int[]
-            {0xFFffd333, 0xFFffb651, 0xFFffd333, 0xFFffb651,0xFFffd333, 0xFFffb651,0xFFffd333, 0xFFffb651};
+            {0xFFffd333, 0xFFffb651};
 
-    private int mItemCount=6;
+    protected static int mItemCount = 4;
     private Paint mArcPaint;
     private Paint mTextPaint;
     private float mTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 20, getResources().getDisplayMetrics());
@@ -40,6 +43,7 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
     private double mSpeed = 0;
     private volatile float mStartAngle = 0;
     private boolean mShouldStop;
+
     public spintheWheel(Context context) {
         this(context, null);
     }
@@ -106,7 +110,7 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
             draw();
             long end = System.currentTimeMillis();
             if (end - start < 50) {
-                SystemClock.sleep(50 - (end - start));
+                sleep(50 - (end - start));
             }
         }
     }
@@ -114,30 +118,30 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
     private void draw() {
         try {
             mCanvas = mHolder.lockCanvas();
-                    if (mCanvas != null) {
-                        //draw something
-                        drawBackground();
+            if (mCanvas != null) {
+                //draw something
+                drawBackground();
 
-                        float startAngle = mStartAngle;
-                        float sweepAngle = 360 / mItemCount;
+                float startAngle = mStartAngle;
+                float sweepAngle = 360 / mItemCount;
 
-                        for (int i = 0; i < mItemCount; i++) {
-                            mArcPaint.setColor(mColors[i]);
+                for (int i = 0; i < mItemCount; i++) {
+                    mArcPaint.setColor(mColors[i % 2]);
 //                    startAngle = i * sweepAngle;
-                            mCanvas.drawArc(mRangeRectF, startAngle, sweepAngle, true, mArcPaint);
+                    mCanvas.drawArc(mRangeRectF, startAngle, sweepAngle, true, mArcPaint);
 
-                            drawText(startAngle, sweepAngle, mTexts[i]);
-                            startAngle += sweepAngle;
-                        }
+                    drawText(startAngle, sweepAngle, mTexts[i]);
+                    startAngle += sweepAngle;
+                }
 
-                        mStartAngle += mSpeed;
+                mStartAngle += mSpeed;
 
-                        if (mShouldStop) {
-                            mSpeed--;
-                        }
+                if (mShouldStop) {
+                    mSpeed--;
+                }
 
-                        if (mSpeed <= 0) {
-                            mSpeed = 0;
+                if (mSpeed <= 0) {
+                    mSpeed = 0;
                     mShouldStop = false;
                 }
             }
@@ -167,8 +171,10 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
     }
 
     public void stop() {
-        mStartAngle = (float)(Math.random()*8);
+        mStartAngle = (float) (Math.random() * 8);
         mShouldStop = true;
+        sleep(5000);
+        this.setVisibility(View.INVISIBLE);
     }
 
 
@@ -185,7 +191,7 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
         path.addArc(mRangeRectF, startAngle, sweepAngle);
 
         float textWidth = mTextPaint.measureText(text);
-        int hOffset = (int)(Math.PI / mItemCount/2  * mDiameter / 2 / 2 - textWidth / 2);
+        int hOffset = (int) (Math.PI / mItemCount * mDiameter / 2 - textWidth / 2);
         int vOffset = mDiameter / 2 / mItemCount;
         mCanvas.drawTextOnPath(text, path, hOffset, vOffset, mTextPaint);
     }

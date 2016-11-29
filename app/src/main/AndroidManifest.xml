@@ -20,7 +20,6 @@
         <activity android:name=".Restaurant" />
         <activity android:name=".Tournament" />
         <activity android:name=".Wheel" />
-        <activity android:name=".wheelselect" />
         <activity android:name=".Main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
