@@ -10,20 +10,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.hello.project.Category">
 
-    <Button
-        android:text="back"
-        android:layout_height="50dp"
-        android:id="@+id/backbutton4"
-        android:layout_width="80dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:weightSum="1"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
@@ -34,19 +26,12 @@
             android:id="@+id/c_TextView"
             android:layout_weight="0.20" />
 
-        <ScrollView
+        <TextView
+            android:text="TextView"
             android:layout_width="match_parent"
-            android:layout_height="168dp"
-            android:id="@+id/C_ScrollView">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:weightSum="1">
-
-            </LinearLayout>
-        </ScrollView>
+            android:layout_height="207dp"
+            android:id="@+id/c"
+            android:layout_weight="1.50" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -158,8 +143,21 @@
             android:text="찾 기"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/button"
+            android:id="@+id/setcheck"
             android:onClick="onButton1Clicked" />
+
+        <Button
+            android:text="back"
+            android:id="@+id/backbutton4"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="227dp"
+            android:layout_marginStart="227dp"
+            android:layout_marginBottom="18dp"
+            android:layout_weight="0.20"
+            android:layout_height="50dp" />
 
     </LinearLayout>
 

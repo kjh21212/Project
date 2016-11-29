@@ -60,7 +60,6 @@ public class Wheel extends AppCompatActivity {
                 }
             }
         });
-
         mAdditem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

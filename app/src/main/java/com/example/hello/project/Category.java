@@ -8,14 +8,18 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Category extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener{
 
     private TextView tv;
+    private TextView equal;
     private CheckBox cb1, cb2, cb3, cb4, cb5, cb6, cb7, cb8, cb9, cb10;
 
+
     // 음식점이름, 밥(1), 면(2), 국물(3), 매움(4), 육류(5), 해물(6,) 간식(7), 야식(8), 중식(9), 일식(10)
-    int i, checknum = 10, storenum = 47;
+    String[] Check = {"0","0","0","0","0","0","0","0","0","0","0"};
+
     String[][] name = {
            /*01*/ {"구공탄","1","0","0","0","1","0","0","0","0","0"},
            /*02*/ {"눈물닭발","0","0","0","1","1","0","0","0","0","0"},
@@ -65,9 +69,6 @@ public class Category extends AppCompatActivity implements CompoundButton.OnChec
            /*46*/ {"윤떡","0","0","0","1","0","0","1","1","0","0"},
            /*47*/ {"진아네떡볶이","0","0","0","1","0","0","1","1","0","0"},
     };
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,8 +83,10 @@ public class Category extends AppCompatActivity implements CompoundButton.OnChec
         cb7 = (CheckBox) findViewById(R.id.checkBox7);
         cb8 = (CheckBox) findViewById(R.id.checkBox8);
         cb9 = (CheckBox) findViewById(R.id.checkBox9);
+
         cb10 = (CheckBox) findViewById(R.id.checkBox10);
         tv = (TextView)findViewById(R.id.c_TextView);
+        equal = (TextView)findViewById(R.id.c);
 
         cb1.setOnCheckedChangeListener(this);
         cb2.setOnCheckedChangeListener(this);
@@ -96,6 +99,31 @@ public class Category extends AppCompatActivity implements CompoundButton.OnChec
         cb9.setOnCheckedChangeListener(this);
         cb10.setOnCheckedChangeListener(this);
 
+        final String[] result2={""};
+        final int[] count = {0};
+        findViewById(R.id.setcheck).setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                       for(int i=0; i<47; i++){
+                           for(int j=1; j<11; j++){
+                               if(name[i][j].equals(Check[j])){
+                                   count[0]++;
+
+                                    if(count[0] == 10)
+                                    {
+                                        result2[0] += name[i][0] + ", ";
+                                    }
+                                    else if(count[0] == 1){
+                                            result2[0] += name[i][0] + ", ";
+                                    }
+                               }
+                           }
+                       }
+                        equal.setText(result2[0]);
+
+                    }
+                }
+        );
         findViewById(R.id.backbutton4).setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
@@ -105,65 +133,88 @@ public class Category extends AppCompatActivity implements CompoundButton.OnChec
                 }
         );
 
-
     }
-
-
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
         String result = ""; // 문자열 초기화는 빈 문자열
 
         if (cb1.isChecked()) {
             result += cb1.getText().toString() + ", ";
-            // Toast.makeText(this, "밥 선택",Toast.LENGTH_SHORT).show();
+            Check[1]="1";
         }
-
+        else {
+            Check[1] = "0";
+        }
         if (cb2.isChecked()){
             result += cb2.getText().toString() + ", ";
-            // Toast.makeText(this, "면 선택",Toast.LENGTH_SHORT).show();
+            Check[2]="1";
         }
-
+        else {
+            Check[2] = "0";
+        }
         if (cb3.isChecked()){
             result += cb3.getText().toString() + ", ";
-            //Toast.makeText(this, "국물 선택",Toast.LENGTH_SHORT).show();
+            Check[3]="1";
+        }
+        else {
+            Check[3] = "0";
         }
 
         if (cb4.isChecked()){
             result += cb4.getText().toString() + ", ";
-            // Toast.makeText(this, "매움 선택",Toast.LENGTH_SHORT).show();
+            Check[4]="1";
+        }
+        else {
+            Check[4] = "0";
         }
 
         if (cb5.isChecked()){
             result += cb5.getText().toString() + ", ";
-            // Toast.makeText(this, "육류 선택",Toast.LENGTH_SHORT).show();
+            Check[5]="1";
+        }
+        else {
+            Check[5] = "0";
         }
 
         if (cb6.isChecked()){
             result += cb6.getText().toString() + ", ";
-            // Toast.makeText(this, "해물 선택",Toast.LENGTH_SHORT).show();
+            Check[6]="1";
+        }
+        else {
+            Check[6] = "0";
         }
 
         if (cb7.isChecked()){
             result += cb7.getText().toString() + ", ";
-            // Toast.makeText(this, "간식 선택",Toast.LENGTH_SHORT).show();
+            Check[7]="1";
+        }
+        else {
+            Check[7] = "0";
         }
 
         if (cb8.isChecked()){
             result += cb8.getText().toString() + ", ";
-            // Toast.makeText(this, "야식 선택",Toast.LENGTH_SHORT).show();
+            Check[8]="1";
+        }
+        else {
+            Check[8] = "0";
         }
 
-        if (cb9.isChecked()){
+        if (cb9.isChecked()) {
             result += cb9.getText().toString() + ", ";
-            // Toast.makeText(this, "중식 선택",Toast.LENGTH_SHORT).show();
+            Check[9]="1";
+        }
+        else {
+            Check[9] = "0";
         }
 
         if (cb10.isChecked()){
             result += cb10.getText().toString() + ", ";
-            // Toast.makeText(this, "일식 선택",Toast.LENGTH_SHORT).show();
+            Check[10]="1";
+
         }
-
-
+        else {
+            Check[10] = "0";
+        }
         tv.setText("체크항목: " + result);
     }
 
