@@ -1,5 +1,8 @@
 package com.example.hello.project;
-
+/*
+    @author 안수길
+    @2016.11.30
+ */
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -16,8 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Wheel extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    private spintheWheel mLuckyWheel; //Surfaceview에 돌림판을 보여주기위해
-    protected Button mStartButton; //돌리기 버튼 클릭시 돌림판이 start
+    private spintheWheel mLuckyWheel;
+    protected Button mStartButton;
     protected static int item;
     private static String[] mItem = {"", "", "", "", "", "", "", ""};
     private Button[] add = new Button[6];
@@ -27,12 +30,14 @@ public class Wheel extends AppCompatActivity implements AdapterView.OnItemSelect
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wheel);
+
         mLuckyWheel = (spintheWheel) findViewById(R.id.lucky_wheel);
         mStartButton = (Button) findViewById(R.id.start);
         mLuckyWheel.setVisibility(View.INVISIBLE);
         mSpinner = (Spinner) findViewById(R.id.spinner);
         mSpinner.setSelection(mLuckyWheel.mItemCount / 2 - 1);
-        add[0] = (Button) findViewById(R.id.add0);
+
+        add[0] = (Button) findViewById(R.id.add0);   //돌림판에 아이템을 추가하기 위한 버튼들
         add[1] = (Button) findViewById(R.id.add1);
         add[2] = (Button) findViewById(R.id.add2);
         add[3] = (Button) findViewById(R.id.add3);
@@ -41,6 +46,7 @@ public class Wheel extends AppCompatActivity implements AdapterView.OnItemSelect
         for (int i = 0; i < 6; i++) {
             add[i].setEnabled(false);
         }
+        //뒤로가기 버튼
         findViewById(R.id.backbutton2).setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
@@ -49,9 +55,11 @@ public class Wheel extends AppCompatActivity implements AdapterView.OnItemSelect
                     }
                 }
         );
+        //돌리기 버튼
         mStartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //check를 사용하여 모든 item이 선택되었는지 확인
                 boolean check = true;
                 for(int i=0;i<(item + 1) * 2;i++)
                 {
@@ -67,7 +75,7 @@ public class Wheel extends AppCompatActivity implements AdapterView.OnItemSelect
                     Toast toast = Toast.makeText(Wheel.this, "나머지 모두 선택하세요.", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                else{
+                else{ //돌림판의 원이 돌아가고 있으면 멈추고 멈춰 있으면 돌아간다.
                     if (mLuckyWheel.isStarting()) {
                         if (!mLuckyWheel.isShouldStop()) {
                             mLuckyWheel.stop();
@@ -81,6 +89,7 @@ public class Wheel extends AppCompatActivity implements AdapterView.OnItemSelect
                 }
             }
         });
+        //스피너를 통해 아이템의 총 수를 정하여 개수에 맞게 버튼 활성화 및 spintheWheel의 mItemCount변경
         mSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -99,7 +108,7 @@ public class Wheel extends AppCompatActivity implements AdapterView.OnItemSelect
 
             }
         });
-
+        //각각의 버튼 클릭시 index 4로 select class 실행하여 음식점을 추가한다.
         add[0].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -148,6 +157,7 @@ public class Wheel extends AppCompatActivity implements AdapterView.OnItemSelect
                 startActivity(intent);
             }
         });
+        //intent로 들어온 select1을 사용하여 아이템의 이름을 설정한다.
         for (int j = 0; j < (item + 1) * 2; j++) {
             Intent intent = getIntent();
             final int count = intent.getIntExtra("i", j + 4);

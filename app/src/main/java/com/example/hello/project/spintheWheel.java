@@ -1,5 +1,8 @@
 package com.example.hello.project;
-
+/*
+    오픈소스 출처 : http://m.blog.csdn.net/article/details?id=50756375
+    modified by 안수길
+ */
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,15 +11,12 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
-import android.widget.EditText;
 
-import java.util.Random;
 
 import static android.os.SystemClock.sleep;
 
@@ -173,8 +173,6 @@ public class spintheWheel extends SurfaceView implements SurfaceHolder.Callback,
     public void stop() {
         mStartAngle = (float) (Math.random() * 8);
         mShouldStop = true;
-        sleep(5000);
-        this.setVisibility(View.INVISIBLE);
     }
 
 
