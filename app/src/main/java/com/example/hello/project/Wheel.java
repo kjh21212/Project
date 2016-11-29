@@ -41,6 +41,14 @@ public class Wheel extends AppCompatActivity implements AdapterView.OnItemSelect
         for (int i = 0; i < 6; i++) {
             add[i].setEnabled(false);
         }
+        findViewById(R.id.backbutton2).setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), Main.class);
+                        startActivity(intent);
+                    }
+                }
+        );
         mStartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

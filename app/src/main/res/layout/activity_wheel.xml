@@ -24,15 +24,6 @@
         android:padding="30dp" />
 
     <Button
-        android:id="@+id/start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:text="돌리기" />
-
-    <Button
         android:text=""
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,7 +31,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="12dp"
-        android:id="@+id/add3" />
+        android:id="@+id/add3"/>
 
     <Button
         android:text=""
@@ -67,16 +58,6 @@
         app:srcCompat="@drawable/arrows"
         android:layout_below="@+id/add5"
         android:layout_centerHorizontal="true" />
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/start"
-        android:layout_toStartOf="@+id/start"
-        android:id="@+id/spinner"
-        android:layout_below="@+id/lucky_wheel"
-        android:entries="@array/number"/>
 
     <Button
         android:id="@+id/add0"
@@ -113,4 +94,39 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_width="350dp" />
+
+    <Spinner
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:entries="@array/number"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/lucky_wheel"
+        android:layout_toLeftOf="@+id/imageView"
+        android:layout_toStartOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="돌리기"
+        android:layout_alignRight="@+id/imageView"
+        android:layout_alignEnd="@+id/imageView"
+        android:layout_alignTop="@+id/backbutton4"
+        android:layout_alignParentBottom="true" />
+
+    <Button
+        android:text="back"
+        android:id="@+id/backbutton2"
+        android:layout_width="match_parent"
+        android:layout_weight="0.20"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/add5"
+        android:layout_alignStart="@+id/add5" />
+
 </RelativeLayout>
