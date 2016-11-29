@@ -124,16 +124,21 @@ public class Category extends AppCompatActivity implements CompoundButton.OnChec
                                 b++;
                             }
                         }
-
+                        boolean flag = true;
                         for (int i = 0; i < 47; i++) {
                             for (int j = 0; j < b; j++) {
                                 if (name[i][k[j]].equals("1") && name[i][k[j+1]].equals("1")){
-                                    al.add(name[i][0]);
+                                   if(flag == true) {
+                                       al.add(name[i][0]);
+                                       flag = false;
+                                   }
+
                                 }
                                 else if(name[i][k[j]].equals("1") && b==1 ) {
                                     al.add(name[i][0]);
                                 }
                             }
+                            flag = true;
                         }
                         MyAdapter adapter = new MyAdapter(getApplicationContext(), R.layout.row, al);
                         ListView lv = (ListView) findViewById(R.id.listview);
@@ -242,8 +247,6 @@ class MyAdapter extends BaseAdapter {
         this.inf = (LayoutInflater) context.getSystemService
                 (Context.LAYOUT_INFLATER_SERVICE);
     }
-
-
 
     @Override
     public int getCount() { // ListView 에서 사용할 데이터의 총개수
