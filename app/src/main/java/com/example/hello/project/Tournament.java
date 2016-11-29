@@ -73,16 +73,19 @@ public class Tournament extends AppCompatActivity {
         );
         if(count<4){
             tv3.setText("8강");
+            tv3.setTextSize(25);
             tv1.setBackgroundResource(TournamentStart.num[count*2]);
             tv2.setBackgroundResource(TournamentStart.num[count*2+1]);
         }
         else if(count>3 && count<6){
             tv3.setText("4강");
+            tv3.setTextSize(25);
             tv1.setBackgroundResource(TournamentStart.num[count*2-8]);
             tv2.setBackgroundResource(TournamentStart.num[count*2-7]);
         }
         else{
             tv3.setText("결승");
+            tv3.setTextSize(25);
             tv1.setBackgroundResource(TournamentStart.num[count*2-12]);
             tv2.setBackgroundResource(TournamentStart.num[count*2-11]);
         }
