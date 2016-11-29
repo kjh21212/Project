@@ -110,7 +110,7 @@ public class Category extends AppCompatActivity implements CompoundButton.OnChec
                         int b=0;
                         for(int i=1; i<11; i++)
                         {
-                            if(Check[i].equals('1')) {
+                            if(Check[i].equals("1")) {
                                 k[b] = i;
                                 b++;
                             }
@@ -121,7 +121,7 @@ public class Category extends AppCompatActivity implements CompoundButton.OnChec
 
                         for (int i = 0; i < 47; i++) {
                             for (int j = 0; j < b; j++) {
-                                if (name[i][k[j]].equals('1') && name[i][k[j+1]].equals('1')){
+                                if (name[i][k[j]].equals("1") && name[i][k[j+1]].equals("1")){
                                     result2[0] += name[i][0] + ", ";
                                 }
                             }
