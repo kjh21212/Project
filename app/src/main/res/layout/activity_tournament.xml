@@ -51,13 +51,27 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="212dp"
+            android:layout_height="170dp"
             android:id="@+id/layout_1">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/tView1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="97dp">
+
+            <TextView
+                android:text="vs"
+                android:textSize="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/textView"
+                android:gravity="center"/>
         </LinearLayout>
 
         <LinearLayout
