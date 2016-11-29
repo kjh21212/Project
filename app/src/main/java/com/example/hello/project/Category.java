@@ -1,21 +1,24 @@
 package com.example.hello.project;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.*;
 import android.widget.TextView;
-import android.widget.Toast;
+import java.util.*;
 
 public class Category extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
     private TextView tv;
-    private TextView equal;
     private CheckBox cb1, cb2, cb3, cb4, cb5, cb6, cb7, cb8, cb9, cb10;
-
+    ArrayList al = new ArrayList(); // 다량의 데이터를 담을 객체
 
     // 음식점이름, 밥(1), 면(2), 국물(3), 매움(4), 육류(5), 해물(6,) 간식(7), 야식(8), 중식(9), 일식(10)
     final String[] Check = {"0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0"};
@@ -87,7 +90,6 @@ public class Category extends AppCompatActivity implements CompoundButton.OnChec
 
         cb10 = (CheckBox) findViewById(R.id.checkBox10);
         tv = (TextView) findViewById(R.id.c_TextView);
-        equal = (TextView) findViewById(R.id.c);
 
         cb1.setOnCheckedChangeListener(this);
         cb2.setOnCheckedChangeListener(this);
@@ -101,10 +103,20 @@ public class Category extends AppCompatActivity implements CompoundButton.OnChec
         cb10.setOnCheckedChangeListener(this);
 
         final String[] result2 = {""};
-        final int[] count = {0};
+
+        findViewById(R.id.backbutton4).setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), Main.class);
+                        startActivity(intent);
+                    }
+                }
+        );
+
         findViewById(R.id.setcheck).setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
+                        al.clear();
 
                         int [] k = new int[10];
                         int b=0;
@@ -115,33 +127,28 @@ public class Category extends AppCompatActivity implements CompoundButton.OnChec
                                 b++;
                             }
                         }
-
-                        equal.setText("");
                         result2[0] = "";
-
                         for (int i = 0; i < 47; i++) {
                             for (int j = 0; j < b; j++) {
                                 if (name[i][k[j]].equals("1") && name[i][k[j+1]].equals("1")){
-                                    result2[0] += name[i][0] + ", ";
+                                    al.add(name[i][0]);
                                 }
                             }
                         }
-                        equal.setText(result2[0]);
+                        MyAdapter adapter = new MyAdapter (
+                                getApplicationContext(), // 현재 화면의 제어권자
+                                R.layout.row, // xml 에 작성한 array 항목을 지정
+                                al);
+                        ListView lv = (ListView) findViewById(R.id.listview);
+                        lv.setAdapter(adapter);
+                    }
 
-                    }
+
                 }
         );
-        findViewById(R.id.backbutton4).setOnClickListener(
-                new Button.OnClickListener() {
-                    public void onClick(View v) {
-                        Intent intent = new Intent(getApplicationContext(), Main.class);
-                        startActivity(intent);
-                    }
-                }
-        );
+
 
     }
-
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         String result = ""; // 문자열 초기화는 빈 문자열
 
@@ -150,7 +157,6 @@ public class Category extends AppCompatActivity implements CompoundButton.OnChec
             Check[1] = "1";
         } else {
             Check[1] = "0";
-            Toast.makeText(getApplicationContext(), Check[1], Toast.LENGTH_SHORT).show();
         }
 
         if (cb2.isChecked()) {
@@ -218,12 +224,62 @@ public class Category extends AppCompatActivity implements CompoundButton.OnChec
         }
         tv.setText("체크항목: " + result);
     }
-
-
     public void onButton1Clicked(View v) {
         // if 체크박스에 아무것도 눌리지 않았으면
         // Toast.makeText(getApplicationContext(), "적어도 하나이상 선택해야 합니다." Toast.LENGTH_SHORT).shwo();
         // else 선택한것이므로 위에 리스트박스에 상호명을 나열.
     }
 }
+
+class MyAdapter extends BaseAdapter {
+
+    Context context;   // 현재 화면의 제어권자
+    int layout;         // 한 행을 그려줄 레이아웃
+    ArrayList al;       // 다량의 데이터
+    LayoutInflater inf;     // layout xml 파일을 객체로 전환할때 필요
+
+    public MyAdapter(Context context, int layout, ArrayList al) {// 초기화
+        this.context = context;
+        this.layout = layout;
+        this.al = al;
+        this.inf = (LayoutInflater) context.getSystemService
+                (Context.LAYOUT_INFLATER_SERVICE);
+    }
+
+
+
+    @Override
+    public int getCount() { // ListView 에서 사용할 데이터의 총개수
+        return al.size();
+    }
+
+    @Override
+    public Object getItem(int position) { // 해당 position번째의 데이터 값
+        return al.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {// 해당 position번째의 유니크한id 값
+        return position;
+    }
+
+    public void clear() {
+        // clear the data
+        al.clear();
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        //해당행 순서,   해당행 레이아웃,          리스트뷰
+        // 한행의 화면을 셋팅하는 메서드 (가장 중요)
+        if (convertView == null) {
+            convertView = inf.inflate(layout, null);
+            //xml파일로 레이아웃객체 생성
+        }
+        TextView tv = (TextView) convertView.findViewById(R.id.textView10);
+        tv.setText(al.get(position).toString()); // 해당번째의 값을 설정
+
+        return convertView;
+    }
+} // end class MyAdapter
 

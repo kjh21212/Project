@@ -8,18 +8,19 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.AdapterView;
 
-public class Restaurant extends AppCompatActivity{
+public class Restaurant extends AppCompatActivity {
     ListView listview = null;
     ListViewAdapter adapter = null;
 
     int i = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_restaurant);
 
-        listview = (ListView )findViewById(R.id.listview1);
+        listview = (ListView) findViewById(R.id.listview1);
         // Adapter 생성
         adapter = new ListViewAdapter(this);
 
@@ -172,7 +173,7 @@ public class Restaurant extends AppCompatActivity{
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String vo = (String) parent.getAdapter().getItem(position);
                 Intent intent = new Intent(getApplicationContext(), Menu.class);
-                intent.putExtra("name",vo);
+                intent.putExtra("name", vo);
                 startActivity(intent);
             }
         });
@@ -180,3 +181,4 @@ public class Restaurant extends AppCompatActivity{
     }
 
 }
+

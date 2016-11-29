@@ -1,6 +1,5 @@
 package com.example.hello.project;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -13,8 +12,6 @@ import android.widget.TextView;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.net.Uri;
-import android.widget.Toast;
-
 import java.util.ArrayList;
 
 public class ListViewAdapter extends BaseAdapter {
@@ -54,7 +51,6 @@ public class ListViewAdapter extends BaseAdapter {
         // clear the data
         listViewItemList.clear();
     }
-
     // position에 위치한 데이터를 화면에 출력하는데 사용될 View를 리턴.
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
@@ -63,15 +59,10 @@ public class ListViewAdapter extends BaseAdapter {
         // "listview_item" Layout을 inflate하여 convertView 참조 획득.
         if (convertView == null) {
 
-
-
             holder = new ViewHolder();
 
             LayoutInflater inflater = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.activity_list_view_item,null);
-
-
-
 
             holder.iconImageView = (ImageView) convertView.findViewById(R.id.imageView1) ;
             holder.titleTextView  = (TextView) convertView.findViewById(R.id.textView1) ;
@@ -86,11 +77,7 @@ public class ListViewAdapter extends BaseAdapter {
                 }
 
             });
-
-
             convertView.setTag(holder);
-
-
         }
         else{
             holder = (ViewHolder)convertView.getTag();
@@ -106,7 +93,6 @@ public class ListViewAdapter extends BaseAdapter {
         return convertView;
 
     }
-
     public static class ViewHolder {
         @SuppressWarnings("unchecked")
         ImageView iconImageView;
@@ -124,5 +110,12 @@ public class ListViewAdapter extends BaseAdapter {
 
         listViewItemList.add(item);
     }
+
+    public void addItem2(String title) {
+        ListViewItem item = new ListViewItem();
+        item.setTitle(title);
+        listViewItemList.add(item);
+    }
+
 
 }

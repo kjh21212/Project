@@ -26,12 +26,11 @@
             android:id="@+id/c_TextView"
             android:layout_weight="0.20" />
 
-        <TextView
-            android:text="TextView"
+        <ListView
             android:layout_width="match_parent"
-            android:layout_height="207dp"
-            android:id="@+id/c"
-            android:layout_weight="1.50" />
+            android:layout_height="144dp"
+            android:id="@+id/listview"
+            android:layout_weight="0.51" />
 
         <LinearLayout
             android:orientation="horizontal"

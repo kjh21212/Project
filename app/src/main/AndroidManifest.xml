@@ -31,7 +31,8 @@
         <activity android:name=".Select" />
         <activity android:name=".Menu" />
         <activity android:name=".TournamentStart" />
-        <activity android:name=".TournamentFinish"></activity>
+        <activity android:name=".TournamentFinish" />
+        <activity android:name=".row"></activity>
     </application>
 
 </manifest>
