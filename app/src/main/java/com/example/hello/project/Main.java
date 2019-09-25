@@ -1,6 +1,6 @@
-package com.example.hello.project;
+﻿package com.example.hello.project;
 /*
- 16.11.28 재커밋
+ 16.11.28 재커밋 19.09.25 소스트리 테스트용 커밋
  */
 import android.content.Intent;
 import android.os.Bundle;
